@@ -9,7 +9,6 @@ RUN npm i
 COPY . .
 RUN npm run build -- --prod --output-path=/dist
 
-
 # 2. Deploy our Angular app to NGINX
 FROM nginx:alpine
 
@@ -23,6 +22,9 @@ COPY ./nginx/config_errors /usr/share/nginx/html/config_errors
 
 ### Copy our custom nginx.conf file to the NGINX system.
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80
+EXPOSE 80
 
 #### This entry point ensures that NGINX remains in the foreground.
 #### So that the container does not stop

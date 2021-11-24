@@ -1,3 +1,6 @@
+<!-- Listar imagene disponibles. -->
+docker image ls
+
 <!-- Listar contenedores activos. -->
 docker ps -a
 
@@ -14,3 +17,9 @@ docker run -it --rm -d -p 8080:80 --name docker-nginx-angular server-docker-ngin
 
 <!-- Acceder al servidor, cualquier otra url muestra una pagina de error -->
 http://localhost:8080/
+
+<!-- Ahora que la aplicación se está ejecutando como se esperaba, nuestro siguiente paso sería enviar nuestra imagen a un repositorio de imágenes para implementar nuestros contenedores en un servicio en la nube.
+
+Si tiene una cuenta de DockerHub, puede ejecutar los siguientes comandos: -->
+docker login -u <username> -p <password>
+docker push server-docker-nginx-angular
