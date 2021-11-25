@@ -8,6 +8,11 @@ docker-compose*
 README.md
 LICENSE
 .vscode
+/.vscode/*
+/node_modules
+/e2e
+/docs
+*.zip
 
 dist/node_modules
 dist/npm-debug.log
