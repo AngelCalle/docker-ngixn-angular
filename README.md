@@ -1,25 +1,33 @@
-<!-- Listar imagene disponibles. -->
+<!-- List available images. -->
 docker image ls
 
-<!-- Listar contenedores activos. -->
+<!-- List active containers. -->
 docker ps -a
 
-<!-- Detener contenedor. -->
-docker rm ID_DOCKER
+<!-- Stop container. -->
+docker rm CONTAINER_ID
 
-<!-- Compilar contenedor. -->
+<!-- Get container information. -->
+docker inspect CONTAINER_ID
+
+<!-- Get container ip. -->
+docker inspect -f '{{.NetworkSettings.IPAddress}}' CONTAINER_ID
+
+
+
+<!-- Compile container. -->
 docker build . -t server-docker-nginx-angular
 
-<!-- Levantar contenedor. -->
+<!-- Lift container. -->
 docker run -it --rm -d -p 8080:80 --name docker-nginx-angular server-docker-nginx-angular
 
 <!-- docker run -it --rm -p 8080:80 server-docker-nginx-angular -->
 
-<!-- Acceder al servidor, cualquier otra url muestra una pagina de error -->
+<!-- Access the server, any other url shows an error page -->
 http://localhost:8080/
 
-<!-- Ahora que la aplicación se está ejecutando como se esperaba, nuestro siguiente paso sería enviar nuestra imagen a un repositorio de imágenes para implementar nuestros contenedores en un servicio en la nube.
+<!-- Now that the application is running as expected, our next step would be to submit our image to an image repository to deploy our containers to a cloud service.
 
-Si tiene una cuenta de DockerHub, puede ejecutar los siguientes comandos: -->
+If you have a DockerHub account, you can run the following commands: --> 
 docker login -u <username> -p <password>
 docker push server-docker-nginx-angular
